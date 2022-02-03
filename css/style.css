@@ -6,17 +6,13 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-main {
+.productlist main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 300px));
+  gap: 2rem;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
+/*NAVBAR*/
 nav ul {
   display: flex;
   gap: 2rem;
@@ -36,9 +32,40 @@ li a {
 li a:hover {
   text-decoration: underline;
 }
+/*/////*/
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 .productlist main h2 {
   grid-column: 1/-1;
+}
+
+.products img:hover {
+  opacity: 0.5;
+}
+
+.soldOut img {
+  opacity: 0.5;
+}
+article.soldOut::before {
+  content: "OUT OF STOCK";
+  position: absolute;
+  color: white;
+  background-color: black;
+  padding: 0.3rem;
+  margin-top: 5rem;
+}
+.sale {
+  color: rgb(173, 13, 13);
+  display: flex;
+  justify-content: space-between;
+}
+
+.OGprice {
+  text-decoration: line-through;
 }
 
 .categoryMain a {
@@ -54,4 +81,19 @@ button {
   border-style: none;
   border-radius: 1rem;
   padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+}
+.productpage {
+  padding: 2rem;
+}
+
+section.productview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 600px));
+}
+.productview h3 {
+  grid-column: 1/-1;
+}
+/*genral classes*/
+.hidden {
+  display: none;
 }
