@@ -46,7 +46,7 @@ img {
 .products img:hover {
   opacity: 0.5;
 }
-
+/*sold out*/
 .soldOut img {
   opacity: 0.5;
 }
@@ -57,6 +57,15 @@ article.soldOut::before {
   background-color: black;
   padding: 0.3rem;
   margin-top: 5rem;
+}
+/*onsale */
+
+.sale p {
+  display: none;
+}
+
+article.onSale .sale p {
+  display: block;
 }
 .sale {
   color: rgb(173, 13, 13);
