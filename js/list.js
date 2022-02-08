@@ -52,13 +52,14 @@ function showProduct(product) {
 
   if (product.discount) {
     copy.querySelector("article").classList.add("onSale");
+    copy.querySelector(".price").classList.add("OGprice");
   }
 
   copy.querySelector(".price").textContent = `DKK ${product.price}`;
 
-  copy.querySelector(".sale p").textContent = `DKK ${
+  copy.querySelector(".sale p").textContent = `DKK ${Math.round(
     (1 - product.discount / 100) * product.price
-  }`;
+  )}`;
   copy.querySelector(
     ".sale p:nth-child(2)"
   ).textContent = `${product.discount} %`;
