@@ -1,4 +1,4 @@
-const url = "https://kea-alt-del.dk/t7/api/products";
+const url = "https://kea-alt-del.dk/t7/api/products?limit=30";
 
 fetch(url)
   .then(function (res) {
@@ -12,25 +12,6 @@ function handleProductList(data) {
   data.forEach(showProduct);
 }
 
-/*
-  <template class="productsTemplate onSale">
-        <article class="products">
-          <a href="productpage.html"
-            ><img
-              src="images/t-shirt.jpeg"
-              alt="Sahara Team India Fanwear Round Neck Jersey"
-          /></a>
-          <h3>Sahara Team India Fanwear Round Neck Jersey</h3>
-           <p class="type"> type // Brand </p>
-          <p class="price">DKK 895</p>
-           <div class="sale">
-          <p>DKK 1150</p>
-          <p>SALE 28%</p>
-        </div>
-        </article>
-      </template>
-*/
-
 function showProduct(product) {
   console.log(product);
   //grabtempalte
@@ -40,6 +21,10 @@ function showProduct(product) {
 
   const copy = template.cloneNode(true);
   //change content
+  copy
+    .querySelector("a")
+    .setAttribute("href", `productpage.html?id=${product.id}`);
+
   copy.querySelector(
     ".type"
   ).textContent = `${product.articletype} - ${product.brandname}`;
@@ -57,7 +42,7 @@ function showProduct(product) {
 
   copy.querySelector(".price").textContent = `DKK ${product.price}`;
 
-  copy.querySelector(".sale p").textContent = `DKK ${Math.round(
+  copy.querySelector(".sale p").textContent = `DKK ${Math.ceil(
     (1 - product.discount / 100) * product.price
   )}`;
   copy.querySelector(
