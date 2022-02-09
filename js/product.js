@@ -27,5 +27,6 @@ function showProduct(product) {
 
   if (product.soldout) {
     document.querySelector(".productview").classList.add("soldOut");
+    document.querySelector(".productview h3").classList.add("soldOut");
   }
 }

@@ -59,6 +59,15 @@ article.soldOut::before {
   padding: 0.3rem;
   margin-top: 5rem;
 }
+
+h3.soldOut::before {
+  content: "OUT OF STOCK";
+  position: absolute;
+  color: white;
+  background-color: black;
+  padding: 0.3rem;
+  margin-top: 5rem;
+}
 /*onsale */
 
 .sale p {
@@ -79,12 +88,21 @@ article.onSale .sale p {
   text-decoration: line-through;
 }
 
+/*CATEGORIES*/
+
+.MyCatagories {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem;
+}
+
 .categoryMain a {
   text-decoration: none;
   color: rgb(114, 109, 109);
 }
 .categoryMain a:hover {
   text-decoration: underline;
+  font-weight: 700;
 }
 
 /*PRODUCT PAGE*/
