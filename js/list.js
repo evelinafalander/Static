@@ -1,4 +1,7 @@
-const url = "https://kea-alt-del.dk/t7/api/products?limit=30";
+const urlParams = new URLSearchParams(window.location.search);
+const category = urlParams.get("category");
+const url =
+  "https://kea-alt-del.dk/t7/api/products?limit=30&category=" + category;
 
 fetch(url)
   .then(function (res) {
@@ -14,6 +17,8 @@ function handleProductList(data) {
 
 function showProduct(product) {
   console.log(product);
+
+  document.querySelector(".categoryName").textContent = product.category;
   //grabtempalte
 
   const template = document.querySelector(".productsTemplate").content;
@@ -51,6 +56,7 @@ function showProduct(product) {
   copy.querySelector(
     "article.products img"
   ).src = `https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`;
+
   //grab parent
 
   const parent = document.querySelector("main");

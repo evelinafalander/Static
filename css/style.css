@@ -90,10 +90,11 @@ article.onSale .sale p {
 
 /*CATEGORIES*/
 
-.MyCatagories {
+.Accessories {
   display: flex;
   gap: 2rem;
-  margin: 2rem;
+  padding: 1rem;
+  margin-left: 2rem;
 }
 
 .categoryMain a {
@@ -103,6 +104,12 @@ article.onSale .sale p {
 .categoryMain a:hover {
   text-decoration: underline;
   font-weight: 700;
+}
+
+.categoryMain h2 {
+  margin: 0;
+  padding-bottom: 0.5rem;
+  margin-left: 2rem;
 }
 
 /*PRODUCT PAGE*/
