@@ -1,19 +1,29 @@
 const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get("category");
 const url =
-  "https://kea-alt-del.dk/t7/api/products?limit=30&category=" + category;
+  "https://kea-alt-del.dk/t7/api/products?limit=20&category=" + category;
 
-fetch(url)
-  .then(function (res) {
-    return res.json();
-  })
-  .then(function (data) {
-    handleProductList(data);
-  });
+let start = 0;
 
+function getData() {
+  const url = "https://kea-alt-del.dk/t7/api/products?limit=20&start=" + start;
+
+  fetch(url)
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (data) {
+      handleProductList(data);
+    });
+}
+getData();
 function handleProductList(data) {
   data.forEach(showProduct);
 }
+document.querySelector(".loadNext").addEventListener("click", function () {
+  start = start + 10;
+  getData();
+});
 
 function showProduct(product) {
   console.log(product);

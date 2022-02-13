@@ -47,6 +47,12 @@ img {
 .products img:hover {
   opacity: 0.5;
 }
+
+.loadNext {
+  cursor: pointer;
+  margin: 2rem 1rem 1rem 2rem;
+}
+
 /*sold out*/
 .soldOut img {
   opacity: 0.5;
